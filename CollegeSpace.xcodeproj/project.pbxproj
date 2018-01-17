@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		298B5D74200F8CFA00ED3BC9 /* EventAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D73200F8CFA00ED3BC9 /* EventAdded.swift */; };
+		298B5D76200F8D1B00ED3BC9 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D75200F8D1B00ED3BC9 /* EventCell.swift */; };
+		298B5D78200F917A00ED3BC9 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D77200F917A00ED3BC9 /* EventVC.swift */; };
+		29F4AEC6200E604300578B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC5200E604300578B62 /* AppDelegate.swift */; };
+		29F4AEC8200E604300578B62 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC7200E604300578B62 /* FirstViewController.swift */; };
+		29F4AECA200E604300578B62 /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC9200E604300578B62 /* AddEventVC.swift */; };
+		29F4AECD200E604300578B62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F4AECB200E604300578B62 /* Main.storyboard */; };
+		29F4AECF200E604300578B62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29F4AECE200E604300578B62 /* Assets.xcassets */; };
+		29F4AED2200E604300578B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F4AED0200E604300578B62 /* LaunchScreen.storyboard */; };
+		E64661836122FAD29887E362 /* Pods_CollegeSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1601603DC835C8AD723FACA /* Pods_CollegeSpace.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		298B5D73200F8CFA00ED3BC9 /* EventAdded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAdded.swift; sourceTree = "<group>"; };
+		298B5D75200F8D1B00ED3BC9 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		298B5D77200F917A00ED3BC9 /* EventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVC.swift; sourceTree = "<group>"; };
+		29F4AEC2200E604300578B62 /* CollegeSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29F4AEC5200E604300578B62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		29F4AEC7200E604300578B62 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		29F4AEC9200E604300578B62 /* AddEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventVC.swift; sourceTree = "<group>"; };
+		29F4AECC200E604300578B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		29F4AECE200E604300578B62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		29F4AED1200E604300578B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		29F4AED3200E604300578B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76D166F937D76225AA80DB4E /* Pods-CollegeSpace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeSpace.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeSpace/Pods-CollegeSpace.debug.xcconfig"; sourceTree = "<group>"; };
+		C1601603DC835C8AD723FACA /* Pods_CollegeSpace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegeSpace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3A0383752DD1D9CEE224DF4 /* Pods-CollegeSpace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeSpace.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeSpace/Pods-CollegeSpace.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		29F4AEBF200E604300578B62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E64661836122FAD29887E362 /* Pods_CollegeSpace.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		298B5D71200F8CCE00ED3BC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				298B5D75200F8D1B00ED3BC9 /* EventCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		298B5D72200F8CDA00ED3BC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				298B5D73200F8CFA00ED3BC9 /* EventAdded.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		29F4AEB9200E604300578B62 = {
+			isa = PBXGroup;
+			children = (
+				29F4AEC4200E604300578B62 /* CollegeSpace */,
+				29F4AEC3200E604300578B62 /* Products */,
+				4418C1759B38BFBA846DBC79 /* Pods */,
+				69C4D738273D851BAC7E990B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		29F4AEC3200E604300578B62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29F4AEC2200E604300578B62 /* CollegeSpace.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29F4AEC4200E604300578B62 /* CollegeSpace */ = {
+			isa = PBXGroup;
+			children = (
+				298B5D72200F8CDA00ED3BC9 /* View */,
+				298B5D71200F8CCE00ED3BC9 /* Model */,
+				29F4AEC5200E604300578B62 /* AppDelegate.swift */,
+				29F4AEC7200E604300578B62 /* FirstViewController.swift */,
+				29F4AEC9200E604300578B62 /* AddEventVC.swift */,
+				298B5D77200F917A00ED3BC9 /* EventVC.swift */,
+				29F4AECB200E604300578B62 /* Main.storyboard */,
+				29F4AECE200E604300578B62 /* Assets.xcassets */,
+				29F4AED0200E604300578B62 /* LaunchScreen.storyboard */,
+				29F4AED3200E604300578B62 /* Info.plist */,
+			);
+			path = CollegeSpace;
+			sourceTree = "<group>";
+		};
+		4418C1759B38BFBA846DBC79 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76D166F937D76225AA80DB4E /* Pods-CollegeSpace.debug.xcconfig */,
+				D3A0383752DD1D9CEE224DF4 /* Pods-CollegeSpace.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		69C4D738273D851BAC7E990B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1601603DC835C8AD723FACA /* Pods_CollegeSpace.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		29F4AEC1200E604300578B62 /* CollegeSpace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29F4AED6200E604300578B62 /* Build configuration list for PBXNativeTarget "CollegeSpace" */;
+			buildPhases = (
+				DADEE1D37BBA3E3F27DDC46B /* [CP] Check Pods Manifest.lock */,
+				29F4AEBE200E604300578B62 /* Sources */,
+				29F4AEBF200E604300578B62 /* Frameworks */,
+				29F4AEC0200E604300578B62 /* Resources */,
+				207506082F4248827BB36756 /* [CP] Embed Pods Frameworks */,
+				8C23E61646438E57718E8159 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CollegeSpace;
+			productName = CollegeSpace;
+			productReference = 29F4AEC2200E604300578B62 /* CollegeSpace.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29F4AEBA200E604300578B62 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Kanishk Verma";
+				TargetAttributes = {
+					29F4AEC1200E604300578B62 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 29F4AEBD200E604300578B62 /* Build configuration list for PBXProject "CollegeSpace" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 29F4AEB9200E604300578B62;
+			productRefGroup = 29F4AEC3200E604300578B62 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				29F4AEC1200E604300578B62 /* CollegeSpace */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		29F4AEC0200E604300578B62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29F4AED2200E604300578B62 /* LaunchScreen.storyboard in Resources */,
+				29F4AECF200E604300578B62 /* Assets.xcassets in Resources */,
+				29F4AECD200E604300578B62 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		207506082F4248827BB36756 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CollegeSpace/Pods-CollegeSpace-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeSpace/Pods-CollegeSpace-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C23E61646438E57718E8159 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeSpace/Pods-CollegeSpace-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DADEE1D37BBA3E3F27DDC46B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CollegeSpace-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		29F4AEBE200E604300578B62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29F4AECA200E604300578B62 /* AddEventVC.swift in Sources */,
+				29F4AEC6200E604300578B62 /* AppDelegate.swift in Sources */,
+				298B5D76200F8D1B00ED3BC9 /* EventCell.swift in Sources */,
+				298B5D78200F917A00ED3BC9 /* EventVC.swift in Sources */,
+				29F4AEC8200E604300578B62 /* FirstViewController.swift in Sources */,
+				298B5D74200F8CFA00ED3BC9 /* EventAdded.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		29F4AECB200E604300578B62 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29F4AECC200E604300578B62 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		29F4AED0200E604300578B62 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29F4AED1200E604300578B62 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		29F4AED4200E604300578B62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		29F4AED5200E604300578B62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		29F4AED7200E604300578B62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76D166F937D76225AA80DB4E /* Pods-CollegeSpace.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 696GDEHEZE;
+				INFOPLIST_FILE = CollegeSpace/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = terror.CollegeSpace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		29F4AED8200E604300578B62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3A0383752DD1D9CEE224DF4 /* Pods-CollegeSpace.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 696GDEHEZE;
+				INFOPLIST_FILE = CollegeSpace/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = terror.CollegeSpace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		29F4AEBD200E604300578B62 /* Build configuration list for PBXProject "CollegeSpace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29F4AED4200E604300578B62 /* Debug */,
+				29F4AED5200E604300578B62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29F4AED6200E604300578B62 /* Build configuration list for PBXNativeTarget "CollegeSpace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29F4AED7200E604300578B62 /* Debug */,
+				29F4AED8200E604300578B62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29F4AEBA200E604300578B62 /* Project object */;
+}
