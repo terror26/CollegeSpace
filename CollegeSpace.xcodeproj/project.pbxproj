@@ -11,7 +11,7 @@
 		298B5D76200F8D1B00ED3BC9 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D75200F8D1B00ED3BC9 /* EventCell.swift */; };
 		298B5D78200F917A00ED3BC9 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D77200F917A00ED3BC9 /* EventVC.swift */; };
 		29F4AEC6200E604300578B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC5200E604300578B62 /* AppDelegate.swift */; };
-		29F4AEC8200E604300578B62 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC7200E604300578B62 /* FirstViewController.swift */; };
+		29F4AEC8200E604300578B62 /* ScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC7200E604300578B62 /* ScheduleVC.swift */; };
 		29F4AECA200E604300578B62 /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC9200E604300578B62 /* AddEventVC.swift */; };
 		29F4AECD200E604300578B62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F4AECB200E604300578B62 /* Main.storyboard */; };
 		29F4AECF200E604300578B62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29F4AECE200E604300578B62 /* Assets.xcassets */; };
@@ -25,7 +25,7 @@
 		298B5D77200F917A00ED3BC9 /* EventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVC.swift; sourceTree = "<group>"; };
 		29F4AEC2200E604300578B62 /* CollegeSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F4AEC5200E604300578B62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		29F4AEC7200E604300578B62 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		29F4AEC7200E604300578B62 /* ScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVC.swift; sourceTree = "<group>"; };
 		29F4AEC9200E604300578B62 /* AddEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventVC.swift; sourceTree = "<group>"; };
 		29F4AECC200E604300578B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29F4AECE200E604300578B62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +64,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		298B5D79200FA00500ED3BC9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		29F4AEB9200E604300578B62 = {
 			isa = PBXGroup;
 			children = (
@@ -85,10 +92,11 @@
 		29F4AEC4200E604300578B62 /* CollegeSpace */ = {
 			isa = PBXGroup;
 			children = (
+				298B5D79200FA00500ED3BC9 /* Services */,
 				298B5D72200F8CDA00ED3BC9 /* View */,
 				298B5D71200F8CCE00ED3BC9 /* Model */,
 				29F4AEC5200E604300578B62 /* AppDelegate.swift */,
-				29F4AEC7200E604300578B62 /* FirstViewController.swift */,
+				29F4AEC7200E604300578B62 /* ScheduleVC.swift */,
 				29F4AEC9200E604300578B62 /* AddEventVC.swift */,
 				298B5D77200F917A00ED3BC9 /* EventVC.swift */,
 				29F4AECB200E604300578B62 /* Main.storyboard */,
@@ -249,7 +257,7 @@
 				29F4AEC6200E604300578B62 /* AppDelegate.swift in Sources */,
 				298B5D76200F8D1B00ED3BC9 /* EventCell.swift in Sources */,
 				298B5D78200F917A00ED3BC9 /* EventVC.swift in Sources */,
-				29F4AEC8200E604300578B62 /* FirstViewController.swift in Sources */,
+				29F4AEC8200E604300578B62 /* ScheduleVC.swift in Sources */,
 				298B5D74200F8CFA00ED3BC9 /* EventAdded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
