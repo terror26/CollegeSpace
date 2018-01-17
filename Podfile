@@ -7,4 +7,13 @@ target 'CollegeSpace' do
 
   # Pods for CollegeSpace
 	  pod 'JTAppleCalendar', '~> 7.0'
+	pod 'Firebase'
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Database'
+    pod 'Firebase/Storage'
+    pod 'FBSDKLoginKit'
+    pod 'FacebookCore'
+    pod 'SwiftKeychainWrapper'
+    pod 'GoogleSignIn'
 end

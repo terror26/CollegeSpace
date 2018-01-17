@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>41766679230-42924d3e359a8m6a76g5j5ihgsd8r2pa.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.41766679230-42924d3e359a8m6a76g5j5ihgsd8r2pa</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCr5pLBwHGy0I-_ZeisMi96To8gikP9Zes</string>
+	<key>GCM_SENDER_ID</key>
+	<string>41766679230</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>terror.CollegeSpace</string>
+	<key>PROJECT_ID</key>
+	<string>collegespace-693eb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>collegespace-693eb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:41766679230:ios:4f91b2474fd7e967</string>
+	<key>DATABASE_URL</key>
+	<string>https://collegespace-693eb.firebaseio.com</string>
+</dict>
+</plist>

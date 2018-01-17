@@ -455,6 +455,9 @@
                                         <state key="normal" title="Save">
                                             <color key="titleColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="SaveBtnPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="h3c-DJ-oYu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -477,9 +480,10 @@
                     <tabBarItem key="tabBarItem" title="Add Event" id="cPa-gy-q4n"/>
                     <navigationItem key="navigationItem" title="Add Event" id="iVU-Dq-sCH"/>
                     <connections>
-                        <outlet property="durationLbl" destination="Cqy-PO-z9c" id="M8V-rR-Ix9"/>
+                        <outlet property="endTimeLbl" destination="Cqy-PO-z9c" id="axj-A0-Yvo"/>
                         <outlet property="eventdateTime" destination="tFU-yt-i7x" id="ruf-I3-zIn"/>
                         <outlet property="locationLbl" destination="Pnv-nH-LHw" id="PdU-np-WFH"/>
+                        <outlet property="startTimeLbl" destination="Fs7-NH-Ztg" id="MeN-sn-8Ru"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

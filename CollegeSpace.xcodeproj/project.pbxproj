@@ -10,6 +10,9 @@
 		298B5D74200F8CFA00ED3BC9 /* EventAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D73200F8CFA00ED3BC9 /* EventAdded.swift */; };
 		298B5D76200F8D1B00ED3BC9 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D75200F8D1B00ED3BC9 /* EventCell.swift */; };
 		298B5D78200F917A00ED3BC9 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D77200F917A00ED3BC9 /* EventVC.swift */; };
+		298B5D7B200FA06D00ED3BC9 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D7A200FA06D00ED3BC9 /* DataServices.swift */; };
+		298B5D7E200FA14F00ED3BC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D7D200FA14F00ED3BC9 /* Constants.swift */; };
+		298B5D87200FDDB800ED3BC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 298B5D86200FDDB800ED3BC9 /* GoogleService-Info.plist */; };
 		29F4AEC6200E604300578B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC5200E604300578B62 /* AppDelegate.swift */; };
 		29F4AEC8200E604300578B62 /* ScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC7200E604300578B62 /* ScheduleVC.swift */; };
 		29F4AECA200E604300578B62 /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC9200E604300578B62 /* AddEventVC.swift */; };
@@ -23,6 +26,9 @@
 		298B5D73200F8CFA00ED3BC9 /* EventAdded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAdded.swift; sourceTree = "<group>"; };
 		298B5D75200F8D1B00ED3BC9 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		298B5D77200F917A00ED3BC9 /* EventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVC.swift; sourceTree = "<group>"; };
+		298B5D7A200FA06D00ED3BC9 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
+		298B5D7D200FA14F00ED3BC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		298B5D86200FDDB800ED3BC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29F4AEC2200E604300578B62 /* CollegeSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F4AEC5200E604300578B62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29F4AEC7200E604300578B62 /* ScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVC.swift; sourceTree = "<group>"; };
@@ -67,8 +73,27 @@
 		298B5D79200FA00500ED3BC9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				298B5D7A200FA06D00ED3BC9 /* DataServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		298B5D7C200FA13E00ED3BC9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				298B5D7D200FA14F00ED3BC9 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		298B5D85200FA56C00ED3BC9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				29F4AEC7200E604300578B62 /* ScheduleVC.swift */,
+				298B5D77200F917A00ED3BC9 /* EventVC.swift */,
+				29F4AEC9200E604300578B62 /* AddEventVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		29F4AEB9200E604300578B62 = {
@@ -92,17 +117,17 @@
 		29F4AEC4200E604300578B62 /* CollegeSpace */ = {
 			isa = PBXGroup;
 			children = (
+				298B5D7C200FA13E00ED3BC9 /* Utilities */,
 				298B5D79200FA00500ED3BC9 /* Services */,
-				298B5D72200F8CDA00ED3BC9 /* View */,
 				298B5D71200F8CCE00ED3BC9 /* Model */,
+				298B5D72200F8CDA00ED3BC9 /* View */,
+				298B5D85200FA56C00ED3BC9 /* Controller */,
 				29F4AEC5200E604300578B62 /* AppDelegate.swift */,
-				29F4AEC7200E604300578B62 /* ScheduleVC.swift */,
-				29F4AEC9200E604300578B62 /* AddEventVC.swift */,
-				298B5D77200F917A00ED3BC9 /* EventVC.swift */,
 				29F4AECB200E604300578B62 /* Main.storyboard */,
 				29F4AECE200E604300578B62 /* Assets.xcassets */,
 				29F4AED0200E604300578B62 /* LaunchScreen.storyboard */,
 				29F4AED3200E604300578B62 /* Info.plist */,
+				298B5D86200FDDB800ED3BC9 /* GoogleService-Info.plist */,
 			);
 			path = CollegeSpace;
 			sourceTree = "<group>";
@@ -187,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29F4AED2200E604300578B62 /* LaunchScreen.storyboard in Resources */,
+				298B5D87200FDDB800ED3BC9 /* GoogleService-Info.plist in Resources */,
 				29F4AECF200E604300578B62 /* Assets.xcassets in Resources */,
 				29F4AECD200E604300578B62 /* Main.storyboard in Resources */,
 			);
@@ -202,11 +228,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CollegeSpace/Pods-CollegeSpace-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -219,9 +265,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CollegeSpace/Pods-CollegeSpace-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -254,11 +303,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				29F4AECA200E604300578B62 /* AddEventVC.swift in Sources */,
+				298B5D7B200FA06D00ED3BC9 /* DataServices.swift in Sources */,
 				29F4AEC6200E604300578B62 /* AppDelegate.swift in Sources */,
 				298B5D76200F8D1B00ED3BC9 /* EventCell.swift in Sources */,
 				298B5D78200F917A00ED3BC9 /* EventVC.swift in Sources */,
 				29F4AEC8200E604300578B62 /* ScheduleVC.swift in Sources */,
 				298B5D74200F8CFA00ED3BC9 /* EventAdded.swift in Sources */,
+				298B5D7E200FA14F00ED3BC9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
