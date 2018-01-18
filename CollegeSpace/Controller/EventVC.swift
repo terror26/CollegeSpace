@@ -6,6 +6,7 @@
 //  Copyright © 2018 Kanishk Verma. All rights reserved.
 //
 
+// added by the current user only
 import UIKit
 
 class EventVC: UIViewController {
@@ -13,21 +14,35 @@ class EventVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var sessions = [EventCell]()
-    let cell1 = EventCell(date: "8/10/12", location: "bengal", starttime: "10:00Am", endtime: "11:00Am")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sessions.append(cell1);
         DataServices.instance.populateSessions();
-        
         // Do any additional setup after loading the view.
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        tableView.reloadData()
+    }
 }
 
+
+
 //has the table view and then the implementMe func
-extension EventVC:UITableViewDelegate,UITableViewDataSource,implementMe {
+extension EventVC:UITableViewDelegate,UITableViewDataSource,implementMe,implementMeSessions {
     
+    func getSessionDetails(sessions: [EventCell]) {
+        for firstsession in sessions {
+            sessions.append(firstsession)
+        }
+        tableView.reloadData()
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessions.count
@@ -35,8 +50,8 @@ extension EventVC:UITableViewDelegate,UITableViewDataSource,implementMe {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EventAdded") as?EventAdded {
-            cell.configureCell(eventCell: sessions[indexPath.row])
-            print(" +++++++++++++++++++ \(sessions[indexPath.row].date) ++++++++++++++++++")
+            cell.configureCell(eventCell: self.sessions[indexPath.row])
+            print(" +++++++++++++++++++ \(self.sessions[indexPath.row].date) ++++++++++++++++++")
             return cell
         } else {
             print("Ramram")
@@ -51,6 +66,7 @@ extension EventVC:UITableViewDelegate,UITableViewDataSource,implementMe {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
     func tableView(_ tableView: UITableView, commit editingStyle:   UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             self.sessions.remove(at: indexPath.row)
@@ -64,7 +80,6 @@ extension EventVC:UITableViewDelegate,UITableViewDataSource,implementMe {
         if date == nil {
             return
         }
-        
         let timedemo:String = "\(starttime)-\(endtime)";
         print("YoMan")
         DataServices.instance.saveInFirebaseNames(Name: "Kanishk", date: date!, time: timedemo)

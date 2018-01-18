@@ -194,7 +194,7 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Event Time-->
+        <!--Event Acc To You-->
         <scene sceneID="KbA-tD-dmW">
             <objects>
                 <viewController id="vCQ-ne-eFK" customClass="EventVC" customModule="CollegeSpace" customModuleProvider="target" sceneMemberID="viewController">
@@ -318,7 +318,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hqy-FZ-5Qh"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Event Time" id="sWn-FX-a7E">
+                    <navigationItem key="navigationItem" title="Event Acc To You" id="sWn-FX-a7E">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6ps-v1-8eq">
                             <connections>
                                 <segue destination="8rJ-Kc-sve" kind="show" id="7vx-eZ-QbP"/>
