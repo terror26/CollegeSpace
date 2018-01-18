@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DK2-fx-lLK">
-                                <rect key="frame" x="0.0" y="194" width="375" height="424"/>
+                                <rect key="frame" x="0.0" y="195" width="375" height="423"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventAdded" rowHeight="86" id="Wak-it-CHz" customClass="EventAdded" customModule="CollegeSpace" customModuleProvider="target">
@@ -125,8 +125,18 @@
                                                 <constraint firstItem="2Fs-Eq-kry" firstAttribute="top" secondItem="bB6-hP-Ei5" secondAttribute="top" constant="10" id="tP2-C5-1Yc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLbl" destination="yT5-bv-Kia" id="fVD-J3-nRs"/>
+                                            <outlet property="endtimeLbl" destination="XEZ-9g-tRY" id="sNd-hW-1Ih"/>
+                                            <outlet property="locationLbl" destination="dwo-LQ-bA9" id="qNn-W4-Prd"/>
+                                            <outlet property="starttimeLbl" destination="qzp-0j-QMl" id="GuK-aY-DdA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="COR-nx-Mkp"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="feJ-Dj-yjE"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UG4-1W-Ecg">
                                 <rect key="frame" x="108.5" y="30" width="158.5" height="144.5"/>
@@ -177,7 +187,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DK2-fx-lLK" secondAttribute="trailing" id="McS-3x-WV1"/>
                             <constraint firstItem="DK2-fx-lLK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="PqW-sI-Wqt"/>
@@ -189,6 +199,9 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calender" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="tableView" destination="DK2-fx-lLK" id="OzN-qM-nJc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -287,7 +300,7 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.13929221034049988" green="0.56511873006820679" blue="0.31835120916366577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="gWd-9T-dkU" firstAttribute="leading" secondItem="RmU-Mk-uod" secondAttribute="leadingMargin" constant="10" id="AX6-s5-cDr"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="gWd-9T-dkU" secondAttribute="bottom" constant="10" id="JfE-Dq-3MB"/>
@@ -296,10 +309,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLbl" destination="kdV-VR-7QP" id="I70-Fu-EDn"/>
-                                            <outlet property="endtimeLbl" destination="5xD-cf-JQ6" id="PMh-PU-Law"/>
-                                            <outlet property="locationLbl" destination="4mx-sO-vAI" id="8CI-cf-Zgl"/>
-                                            <outlet property="starttimeLbl" destination="1bB-xk-TNg" id="5cV-ol-3Vi"/>
+                                            <outlet property="dateLbl" destination="kdV-VR-7QP" id="Gjf-Ig-4ES"/>
+                                            <outlet property="endtimeLbl" destination="5xD-cf-JQ6" id="m4y-K6-dVf"/>
+                                            <outlet property="locationLbl" destination="4mx-sO-vAI" id="oR3-YA-emz"/>
+                                            <outlet property="starttimeLbl" destination="1bB-xk-TNg" id="jpw-zd-NVn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

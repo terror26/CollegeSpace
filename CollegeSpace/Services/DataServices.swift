@@ -11,8 +11,13 @@ import FirebaseDatabase
 import FirebaseStorage
 
 protocol implementMeSessions:class {
-    func getSessionDetails(sessions:[EventCell])
+    func getSessionDetails(sessions:[EventCell]?)
+    
 }
+protocol implementmeAll:class {
+    func getAllDetails(Schedule:[EventCell]?)
+}
+
 
 var DB_BASE = Database.database().reference()
 
@@ -21,7 +26,9 @@ class DataServices {
     private static let _instance = DataServices();
     private init(){};
     
-    var delegate:implementMeSessions?
+    weak var delegate:implementMeSessions?
+    weak var delegate2:implementmeAll?
+    
     
     static var instance:DataServices {
         return _instance
@@ -57,10 +64,12 @@ class DataServices {
         
         names.observeSingleEvent(of: .value) { (snapshot) in
             print("\(snapshot.value)--------")
+            
             var sessions = [EventCell]()
+            
             if let result = snapshot.value as?NSDictionary {
                 for (_Name,value) in result {
-                        print("the key is \(_Name) the values is \(value)")
+                    print("the key is \(_Name) the values is \(value)")
                     
                     if let _value1 = value as?NSDictionary {
                         for (_Date,value1) in _value1 {
@@ -97,11 +106,79 @@ class DataServices {
                     }
                 }
             }
-            print("the items in session are\(sessions.count)")
             self.delegate?.getSessionDetails(sessions: sessions)
+            
         }//snapshot
+        
     }//populatesession
+    
+    func populateSchedule() {
+        
+        Events.observeSingleEvent(of: .value) { (snapshot) in
+            
+            var Schedule = [EventCell]()
+            
+            if let result = snapshot.value as?NSDictionary {
+                
+                for(_date,value) in result {
+                    print("The date is \(_date)")
+                    
+                    if let _value2 = value as?NSDictionary {
+                        
+                        for (_time,_) in _value2 {
+                            print("++++++ Finally,The time is \(_time)")
+                            var i=0;
+                            var starttime :String = ""
+                            var endtime:String = ""
+                            var amOrpm:String = ""
+                            let time  = _time as?String
+                            for Character in time! {
+                                if i == 0 {
+                                    starttime += String(Character)
+                                } else if (i==2) {
+                                    endtime += String(Character)
+                                } else if i > 3 {
+                                    amOrpm += String(Character)
+                                }
+                                i += 1
+                            }
+                            
+                            let firstsession = EventCell(date: _date as! String, location: "Yoyo", starttime: starttime, endtime: endtime)
+                            Schedule.append(firstsession)
+                        }
+                        
+                    }
+                }
+            }
+            self.delegate2?.getAllDetails(Schedule: Schedule);
+        } //snapshot
+    }//poputlateScedhule
+    
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

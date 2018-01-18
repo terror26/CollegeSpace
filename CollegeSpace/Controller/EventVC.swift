@@ -9,32 +9,32 @@
 // added by the current user only
 import UIKit
 
-class EventVC: UIViewController {
+class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implementMeSessions,implementMe {
+   
 
     @IBOutlet weak var tableView: UITableView!
     
-    var sessions = [EventCell]()
+    var Sessionsninfo = [EventCell]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        DataServices.instance.delegate = self
         
         DataServices.instance.populateSessions();
+        
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         tableView.reloadData()
     }
-}
-
-
-
-//has the table view and then the implementMe func
-extension EventVC:UITableViewDelegate,UITableViewDataSource,implementMe,implementMeSessions {
     
-    func getSessionDetails(sessions: [EventCell]) {
-        for firstsession in sessions {
-            sessions.append(firstsession)
+    func getSessionDetails(sessions: [EventCell]?) {
+        for firstsession in sessions! {
+            print("the firstsession info if \(firstsession.date)")
+            self.Sessionsninfo.append(firstsession)
         }
         tableView.reloadData()
     }
@@ -45,17 +45,21 @@ extension EventVC:UITableViewDelegate,UITableViewDataSource,implementMe,implemen
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sessions.count
+        return Sessionsninfo.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EventAdded") as?EventAdded {
-            cell.configureCell(eventCell: self.sessions[indexPath.row])
-            print(" +++++++++++++++++++ \(self.sessions[indexPath.row].date) ++++++++++++++++++")
+            cell.configureCell(eventCell: Sessionsninfo[indexPath.row])
+            
+            print(" +++++++++++++++++++ \(self.Sessionsninfo[indexPath.row].date) ++++++++++++++++++")
             return cell
+            
         } else {
             print("Ramram")
-            return UITableViewCell()
+            return EventAdded()
         }
     }
     
@@ -69,7 +73,7 @@ extension EventVC:UITableViewDelegate,UITableViewDataSource,implementMe,implemen
     
     func tableView(_ tableView: UITableView, commit editingStyle:   UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            self.sessions.remove(at: indexPath.row)
+            self.Sessionsninfo.remove(at: indexPath.row)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .middle)
             tableView.endUpdates()
