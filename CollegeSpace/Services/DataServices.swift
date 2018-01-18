@@ -53,15 +53,25 @@ class DataServices {
     var names:DatabaseReference {
         return _names
     }
+    func createFirebaseSpeakerUser(id:String, speakerData: Dictionary<String,String>) {            //Check where u wanna use it or not
+        Users.child(id).updateChildValues(speakerData)
+    }//create firebase speaker
     
-    func saveInFirebaseNames(Name:String, date:String, time:String) {
+    func createFirebaseDBUser(id:String,userData: Dictionary<String,String>) {
+        Users.child(id).updateChildValues(userData)
         
-        let data = [date:"", Constants.names: time];
-        names.child(Name).updateChildValues(data);
-    }
+    }//create firebaseDBUSer
+    
+    func saveUser(withID:String, email:String, password:String) {
+        let data :Dictionary<String,Any> = [
+            Constants.EMAIL: email,
+            Constants.password : password
+        ]
+        Users.child(withID).setValue(data)
+        
+    }//Save user for our signup method
     
     func populateSessions() {
-        
         names.observeSingleEvent(of: .value) { (snapshot) in
             print("\(snapshot.value)--------")
             

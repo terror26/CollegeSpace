@@ -86,7 +86,6 @@ class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implem
         }
         let timedemo:String = "\(starttime)-\(endtime)";
         print("YoMan")
-        DataServices.instance.saveInFirebaseNames(Name: "Kanishk", date: date!, time: timedemo)
     }
 }
 

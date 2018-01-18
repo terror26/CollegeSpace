@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2924EBDD20108FD600EAE48E /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924EBDC20108FD600EAE48E /* SignInVC.swift */; };
+		2924EBDF2010985C00EAE48E /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924EBDE2010985C00EAE48E /* AuthProvider.swift */; };
+		2924EBE120109B8D00EAE48E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924EBE020109B8D00EAE48E /* RoundButton.swift */; };
+		2924EBE320109C4400EAE48E /* roundTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924EBE220109C4400EAE48E /* roundTextFields.swift */; };
+		2924EBE52010A14A00EAE48E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2924EBE42010A14A00EAE48E /* GoogleService-Info.plist */; };
+		2924EBE72010B16F00EAE48E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924EBE62010B16F00EAE48E /* ProfileVC.swift */; };
 		298B5D74200F8CFA00ED3BC9 /* EventAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D73200F8CFA00ED3BC9 /* EventAdded.swift */; };
 		298B5D76200F8D1B00ED3BC9 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D75200F8D1B00ED3BC9 /* EventCell.swift */; };
 		298B5D78200F917A00ED3BC9 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D77200F917A00ED3BC9 /* EventVC.swift */; };
 		298B5D7B200FA06D00ED3BC9 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D7A200FA06D00ED3BC9 /* DataServices.swift */; };
 		298B5D7E200FA14F00ED3BC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B5D7D200FA14F00ED3BC9 /* Constants.swift */; };
-		298B5D87200FDDB800ED3BC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 298B5D86200FDDB800ED3BC9 /* GoogleService-Info.plist */; };
 		29F4AEC6200E604300578B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC5200E604300578B62 /* AppDelegate.swift */; };
 		29F4AEC8200E604300578B62 /* ScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC7200E604300578B62 /* ScheduleVC.swift */; };
 		29F4AECA200E604300578B62 /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4AEC9200E604300578B62 /* AddEventVC.swift */; };
@@ -23,12 +28,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2924EBDC20108FD600EAE48E /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		2924EBDE2010985C00EAE48E /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		2924EBE020109B8D00EAE48E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		2924EBE220109C4400EAE48E /* roundTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundTextFields.swift; sourceTree = "<group>"; };
+		2924EBE42010A14A00EAE48E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2924EBE62010B16F00EAE48E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		298B5D73200F8CFA00ED3BC9 /* EventAdded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAdded.swift; sourceTree = "<group>"; };
 		298B5D75200F8D1B00ED3BC9 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		298B5D77200F917A00ED3BC9 /* EventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVC.swift; sourceTree = "<group>"; };
 		298B5D7A200FA06D00ED3BC9 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		298B5D7D200FA14F00ED3BC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		298B5D86200FDDB800ED3BC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29F4AEC2200E604300578B62 /* CollegeSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F4AEC5200E604300578B62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29F4AEC7200E604300578B62 /* ScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVC.swift; sourceTree = "<group>"; };
@@ -66,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				298B5D73200F8CFA00ED3BC9 /* EventAdded.swift */,
+				2924EBE020109B8D00EAE48E /* RoundButton.swift */,
+				2924EBE220109C4400EAE48E /* roundTextFields.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -74,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				298B5D7A200FA06D00ED3BC9 /* DataServices.swift */,
+				2924EBDE2010985C00EAE48E /* AuthProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -92,6 +105,8 @@
 				29F4AEC7200E604300578B62 /* ScheduleVC.swift */,
 				298B5D77200F917A00ED3BC9 /* EventVC.swift */,
 				29F4AEC9200E604300578B62 /* AddEventVC.swift */,
+				2924EBDC20108FD600EAE48E /* SignInVC.swift */,
+				2924EBE62010B16F00EAE48E /* ProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -99,6 +114,7 @@
 		29F4AEB9200E604300578B62 = {
 			isa = PBXGroup;
 			children = (
+				2924EBE42010A14A00EAE48E /* GoogleService-Info.plist */,
 				29F4AEC4200E604300578B62 /* CollegeSpace */,
 				29F4AEC3200E604300578B62 /* Products */,
 				4418C1759B38BFBA846DBC79 /* Pods */,
@@ -127,7 +143,6 @@
 				29F4AECE200E604300578B62 /* Assets.xcassets */,
 				29F4AED0200E604300578B62 /* LaunchScreen.storyboard */,
 				29F4AED3200E604300578B62 /* Info.plist */,
-				298B5D86200FDDB800ED3BC9 /* GoogleService-Info.plist */,
 			);
 			path = CollegeSpace;
 			sourceTree = "<group>";
@@ -212,7 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29F4AED2200E604300578B62 /* LaunchScreen.storyboard in Resources */,
-				298B5D87200FDDB800ED3BC9 /* GoogleService-Info.plist in Resources */,
+				2924EBE52010A14A00EAE48E /* GoogleService-Info.plist in Resources */,
 				29F4AECF200E604300578B62 /* Assets.xcassets in Resources */,
 				29F4AECD200E604300578B62 /* Main.storyboard in Resources */,
 			);
@@ -303,9 +318,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				29F4AECA200E604300578B62 /* AddEventVC.swift in Sources */,
+				2924EBDD20108FD600EAE48E /* SignInVC.swift in Sources */,
+				2924EBDF2010985C00EAE48E /* AuthProvider.swift in Sources */,
 				298B5D7B200FA06D00ED3BC9 /* DataServices.swift in Sources */,
+				2924EBE320109C4400EAE48E /* roundTextFields.swift in Sources */,
+				2924EBE120109B8D00EAE48E /* RoundButton.swift in Sources */,
 				29F4AEC6200E604300578B62 /* AppDelegate.swift in Sources */,
 				298B5D76200F8D1B00ED3BC9 /* EventCell.swift in Sources */,
+				2924EBE72010B16F00EAE48E /* ProfileVC.swift in Sources */,
 				298B5D78200F917A00ED3BC9 /* EventVC.swift in Sources */,
 				29F4AEC8200E604300578B62 /* ScheduleVC.swift in Sources */,
 				298B5D74200F8CFA00ED3BC9 /* EventAdded.swift in Sources */,
