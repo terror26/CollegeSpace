@@ -15,13 +15,13 @@ class SignInVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var emailLabel: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
     
+    var emailStore:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.emailLabel.delegate = self
         self.passwordLabel.delegate = self
-        
         
     }
     
@@ -44,6 +44,21 @@ class SignInVC: UIViewController,UITextFieldDelegate {
         }
     }
 
+    func setKeychain(emailId:String) {
+        let emaildemo:String = emailId
+        var emailcorrect :String = ""
+        
+        for Character in emaildemo {
+            if Character == "@" {
+                break
+            } else {
+                emailcorrect += "\(Character)"
+            }
+        }
+        
+        KeychainWrapper.standard.set(emailcorrect, forKey: Constants.EMAILIDCURRENT)
+        KeychainWrapper.standard.set("ramram", forKey: Constants.KEY_UID)
+    }
     
     //=====================================Firebase AUTH Stuffs ===========================================
     func FirebaseAuth(_ credential:AuthCredential) {
@@ -63,14 +78,12 @@ class SignInVC: UIViewController,UITextFieldDelegate {
         
         DataServices.instance.createFirebaseDBUser(id: id, userData: userData)
         let KeychainWrapperResult = KeychainWrapper.standard.set(id, forKey: Constants.KEY_UID)
-        print("The REsult of the keychain wrapper is \(KeychainWrapperResult)")
+        KeychainWrapper.standard.set(userData[Constants.EMAILIDCURRENT]!, forKey: Constants.EMAILIDCURRENT)
+        print("The REsult of the keychain wrapper is \(KeychainWrapperResult) and email is \(KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT))")
         doSegueMan()
         
     }
     //======================================== Firebase AUTH Stuffs ENDS ====================================
-    
-    
-    
     
     //sign in and next is signup
     @IBAction func signIn(_ sender: Any) {
@@ -79,10 +92,10 @@ class SignInVC: UIViewController,UITextFieldDelegate {
                 if message != nil {
                     self.alertTheUser(title: "Authentication Error!", message: message!)
                 } else {
+                    self.setKeychain(emailId:self.emailLabel.text!);
                     self.emailLabel.text = ""
                     self.passwordLabel.text = ""
-                    let KeychainWrapperResult = KeychainWrapper.standard.set("ramram", forKey: Constants.KEY_UID)
-                    print("The REsult of the keychain wrapper is \(KeychainWrapperResult)")
+                    
                     doSegueMan()
                 }
             })
@@ -98,6 +111,8 @@ class SignInVC: UIViewController,UITextFieldDelegate {
                 if message != nil {
                     self.alertTheUser(title: "Problem creating the new user", message: message!)
                 } else {
+                    
+                    self.setKeychain(emailId:self.emailLabel.text!);
                     self.emailLabel.text = ""
                     self.passwordLabel.text = ""
                     print("Done man Done")

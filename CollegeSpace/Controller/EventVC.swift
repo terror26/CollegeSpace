@@ -9,33 +9,45 @@
 // added by the current user only
 import UIKit
 
-class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implementMeSessions,implementMe {
-   
-
+class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implementMeSessions,implementSaved {
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     var Sessionsninfo = [EventCell]()
-
+    var Sessiondemo = [EventCell]()
+    var addEventVC = AddEventVC()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        DataServices.instance.delegate = self
         
+        addEventVC.delegatesaved = self
+        DataServices.instance.delegate = self
         DataServices.instance.populateSessions();
         
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
+        DataServices.instance.populateSessions();
+        tableView.reloadData()
+    }
+    
+    func getbackSaved(Event: EventCell?) {
+        Sessionsninfo.append(Event!)
         tableView.reloadData()
     }
     
     func getSessionDetails(sessions: [EventCell]?) {
+        Sessionsninfo.removeAll()
+        
         for firstsession in sessions! {
-            print("the firstsession info if \(firstsession.date)")
-            self.Sessionsninfo.append(firstsession)
+            Sessionsninfo.append(firstsession)
         }
+
         tableView.reloadData()
     }
     
@@ -64,7 +76,7 @@ class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implem
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 90
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -79,14 +91,12 @@ class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implem
             tableView.endUpdates()
         }
     }
-    
-    func getInfoforTime(date: String?, location: String?, starttime: String?, endtime: String?) {
-        if date == nil {
-            return
-        }
-        let timedemo:String = "\(starttime)-\(endtime)";
-        print("YoMan")
+    @IBAction func RefreshBtn(_ sender: Any) {
+        DataServices.instance.populateSchedule()
+    tableView.reloadData()
     }
+    
+    
 }
 
 

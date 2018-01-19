@@ -24,4 +24,5 @@ class Constants {
     static let password = "Password"
     static let KEY_UID = "uid"
     static let Shadow_Color = 122.0 / 255.0
+    static let EMAILIDCURRENT = "EMAILIDCURRENT"
 }

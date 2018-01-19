@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol implementMe {
-    func getInfoforTime(date:String?, location:String?, starttime: String?, endtime:String?)
+protocol implementSaved {
+    func getbackSaved(Event:EventCell?)
 }
 
 class AddEventVC: UIViewController {
@@ -19,10 +19,10 @@ class AddEventVC: UIViewController {
     @IBOutlet weak var startTimeLbl: UITextField!
     @IBOutlet weak var AmPmLbl: UITextField!
     
+    var delegatesaved:implementSaved?
     let datePicker = UIDatePicker()
     var pickerView = UIPickerView()
-    var delegate:implementMe?
-    let cell = EventCell(date: "8/10/12", location: "bengal", starttime: "10:00Am", endtime: "11:00Am")
+    let cell = EventCell(date: "8/10/12",time:"10-11Am")
     
     var data = ["AM","PM"]
     
@@ -83,7 +83,6 @@ class AddEventVC: UIViewController {
         if eventdateTime.text != ""  && startTimeLbl.text != "" && endTimeLbl.text != ""  {
             
             print("Yoyoy")
-            self.delegate?.getInfoforTime(date: eventdateTime.text!, location: "yo", starttime: startTimeLbl.text!, endtime: endTimeLbl.text!)
             var change = eventdateTime.text!
             var correct:String = ""
             for Character in change {
@@ -97,6 +96,8 @@ class AddEventVC: UIViewController {
             
             if DataServices.instance.saveinfo(date: correct, time: timecorrect) {
                 alertTheUser(title: "Successfully", message: "Data stored successfully")
+                let firstevent = EventCell(date: correct, time: timecorrect)
+                self.delegatesaved?.getbackSaved(Event: firstevent)
             } else {
                 alertTheUser(title: "Sorry ", message: "Network Authentication Error")
             }

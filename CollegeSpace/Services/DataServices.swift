@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseDatabase
 import FirebaseStorage
+import SwiftKeychainWrapper
 
 protocol implementMeSessions:class {
     func getSessionDetails(sessions:[EventCell]?)
@@ -87,40 +88,32 @@ class DataServices {
             
             if let result = snapshot.value as?NSDictionary {
                 for (_Name,value) in result {
-                    print("the key is \(_Name) the values is \(value)")
-                    
-                    if let _value1 = value as?NSDictionary {
-                        for (_Date,value1) in _value1 {
-                            print("the date is \(_Date) the value1 is \(value1)")
-                            
-                            if let _value2 = value1 as?NSDictionary {
-                                for (key2,value2) in _value2 {
-                                    print("-------\(key2) is \(value2)------")
-                                    if let _value3 = value2 as?NSDictionary {
-                                        for (_Time,_) in _value3  {
-                                            print("++++++ Finally,The time is \(_Time)")
-                                            var i=0;
-                                            var starttime :String = ""
-                                            var endtime:String = ""
-                                            var amOrpm:String = ""
-                                            let time  = _Time as?String
-                                            for Character in time! {
-                                                if i == 0 {
-                                                    starttime += String(Character)
-                                                } else if (i==2) {
-                                                    endtime += String(Character)
-                                                } else if i > 3 {
-                                                    amOrpm += String(Character)
-                                                }
-                                                i += 1
+                    print("the key is \(_Name) the values is :\(value)ßßß")
+                    print("the keychainwrapper stuff is :\(KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT))ßßßß")
+                    let check = _Name as! String
+                    print("The check is \(check)")
+                    if check == KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT) {
+                    let name = _Name as! String
+                        if let _value1 = value as?NSDictionary {
+                            for (_Date,value1) in _value1 {
+                                print("the date is \(_Date) the value1 is \(value1)")
+                                
+                                if let _value2 = value1 as?NSDictionary {
+                                    for (key2,value2) in _value2 {
+                                        print("-------\(key2) is \(value2)------")
+                                        if let _value3 = value2 as?NSDictionary {
+                                            for (_Time,_) in _value3  {
+                                                print("++++++ Finally,The time is \(_Time)")
+                                                var i=0;
+                                                
+                                                let firstSession = EventCell(date: _Date as! String,time: _Time as! String)
+                                                sessions.append(firstSession)
                                             }
-                                            let firstSession = EventCell(date: _Date as! String, location: "yoho", starttime: starttime, endtime: endtime)
-                                            sessions.append(firstSession)
                                         }
                                     }
                                 }
                             }
-                        }
+                        }// _value1
                     }
                 }
             }
@@ -142,23 +135,9 @@ class DataServices {
                         
                         for (_time,_) in _value2 {
                             print("++++++ Finally,The time is \(_time)")
-                            var i=0;
-                            var starttime :String = ""
-                            var endtime:String = ""
-                            var amOrpm:String = ""
-                            let time  = _time as?String
-                            for Character in time! {
-                                if i == 0 {
-                                    starttime += String(Character)
-                                } else if (i==2) {
-                                    endtime += String(Character)
-                                } else if i > 3 {
-                                    amOrpm += String(Character)
-                                }
-                                i += 1
-                            }
                             
-                            let firstsession = EventCell(date: _date as! String, location: "Yoyo", starttime: starttime, endtime: endtime)
+                            
+                            let firstsession = EventCell(date: _date as! String, time: _time as! String)
                             Schedule.append(firstsession)
                         }
                     }
@@ -171,12 +150,12 @@ class DataServices {
     
     func saveinfo(date:String, time:String) -> Bool {
         var test :Bool = true;
-
+        
         Users.observeSingleEvent(of: .value) { (snapshot) in
             if let result = snapshot.value as?NSDictionary {
                 if let currentUser = result[AuthProvider.instance.userUID()] as?NSDictionary {
                     print("yoman")
-
+                    
                     if let inside = currentUser[Constants.EMAIL] as?NSString {
                         if inside != "" {
                             var email:String = ""
@@ -204,7 +183,7 @@ class DataServices {
         return test
     }//save info end
     
-
+    
 } // Database Services
 
 

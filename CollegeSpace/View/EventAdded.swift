@@ -11,15 +11,11 @@ import UIKit
 class EventAdded: UITableViewCell {
 
     @IBOutlet weak var dateLbl: UILabel!
-    @IBOutlet weak var starttimeLbl: UILabel!
-    @IBOutlet weak var endtimeLbl: UILabel!
-    @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var time: UILabel!
     
     func configureCell(eventCell:EventCell) {
         dateLbl.text = eventCell.date
-        starttimeLbl.text = eventCell.starttime
-        endtimeLbl.text = eventCell.endtime
-        locationLbl.text = eventCell.location
+        time.text = eventCell.time
     }
     
 }

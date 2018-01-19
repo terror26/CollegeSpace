@@ -28,6 +28,8 @@ class ProfileVC: UIViewController {
     //Gmail sign out Button
     @IBAction func signOutBtn(_ sender: Any) {
         KeychainWrapper.standard.removeObject(forKey: Constants.KEY_UID)
+        print("the result remove is \(KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT))")
+        KeychainWrapper.standard.removeObject(forKey: Constants.EMAILIDCURRENT)
         if AuthProvider.instance.isLogOut() {
             AuthProvider.instance.logout()
             logout()

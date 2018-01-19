@@ -15,6 +15,7 @@ class ScheduleVC: UIViewController,UITableViewDataSource,UITableViewDelegate,imp
     }
     
     func getAllDetails(Schedule: [EventCell]?) {
+        DetailsSessions.removeAll()
         for firstsession in Schedule! {
             DetailsSessions.append(firstsession)
         }
