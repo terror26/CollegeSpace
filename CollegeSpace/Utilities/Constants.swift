@@ -14,6 +14,7 @@ class Constants {
     static let location = "location"
     static let startTime = "startTime"
     static let endTime = "endTime"
+    static let Time = "Time"
     static let Events = "Events"
     static let Votes = "Votes"
     static let names = "names"

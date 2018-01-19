@@ -68,13 +68,21 @@ class DataServices {
             Constants.password : password
         ]
         Users.child(withID).setValue(data)
-        
     }//Save user for our signup method
+    
+    func saveMeetingTime(date:String, time:String) {
+        //retrieve the votes
+        Events.child(date).child(time).updateChildValues(["UUID" :AuthProvider.instance.userUID(),Constants.Votes: 1])
+    }//save in Events
+    
+    
+    func saveInNames(emailid:String, date:String, time:String) {
+        names.child(emailid).child(date).child(Constants.Time).updateChildValues([time:true]);
+    }//save in Names
+    
     
     func populateSessions() {
         names.observeSingleEvent(of: .value) { (snapshot) in
-            print("\(snapshot.value)--------")
-            
             var sessions = [EventCell]()
             
             if let result = snapshot.value as?NSDictionary {
@@ -123,11 +131,8 @@ class DataServices {
     }//populatesession
     
     func populateSchedule() {
-        
         Events.observeSingleEvent(of: .value) { (snapshot) in
-            
-            var Schedule = [EventCell]()
-            
+            var Schedule = [EventCell]()            
             if let result = snapshot.value as?NSDictionary {
                 
                 for(_date,value) in result {
@@ -156,7 +161,6 @@ class DataServices {
                             let firstsession = EventCell(date: _date as! String, location: "Yoyo", starttime: starttime, endtime: endtime)
                             Schedule.append(firstsession)
                         }
-                        
                     }
                 }
             }
@@ -164,9 +168,44 @@ class DataServices {
         } //snapshot
     }//poputlateScedhule
     
+    
+    func saveinfo(date:String, time:String) -> Bool {
+        var test :Bool = true;
 
-}
+        Users.observeSingleEvent(of: .value) { (snapshot) in
+            if let result = snapshot.value as?NSDictionary {
+                if let currentUser = result[AuthProvider.instance.userUID()] as?NSDictionary {
+                    print("yoman")
 
+                    if let inside = currentUser[Constants.EMAIL] as?NSString {
+                        if inside != "" {
+                            var email:String = ""
+                            let emaildemo : String = inside as String
+                            
+                            for Character in emaildemo {
+                                if Character == "@" {
+                                    break
+                                } else {
+                                    email += "\(Character)"
+                                }
+                            }
+                            self.saveInNames(emailid: email, date: date, time: time)
+                            self.saveMeetingTime(date: date, time: time)
+                            print("test is \(test)")
+                            
+                        } else {
+                            test = false
+                            print("test is \(test)")
+                        }
+                    }
+                }
+            }
+        }
+        return test
+    }//save info end
+    
+
+} // Database Services
 
 
 
