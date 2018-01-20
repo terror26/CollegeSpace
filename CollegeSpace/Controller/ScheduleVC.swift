@@ -41,6 +41,11 @@ class ScheduleVC: UIViewController,UITableViewDataSource,UITableViewDelegate,imp
         }
         return EventAdded()
     }
+    @IBAction func RefreshBtnPressed(_ sender: Any) {
+        DataServices.instance.populateSchedule()
+        tableView.reloadData()
+
+    }
     
 }//VCEnds here
 

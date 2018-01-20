@@ -88,8 +88,7 @@ class DataServices {
             
             if let result = snapshot.value as?NSDictionary {
                 for (_Name,value) in result {
-                    print("the key is \(_Name) the values is :\(value)ßßß")
-                    print("the keychainwrapper stuff is :\(KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT))ßßßß")
+
                     let check = _Name as! String
                     print("The check is \(check)")
                     if check == KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT) {
@@ -104,7 +103,6 @@ class DataServices {
                                         if let _value3 = value2 as?NSDictionary {
                                             for (_Time,_) in _value3  {
                                                 print("++++++ Finally,The time is \(_Time)")
-                                                var i=0;
                                                 
                                                 let firstSession = EventCell(date: _Date as! String,time: _Time as! String)
                                                 sessions.append(firstSession)

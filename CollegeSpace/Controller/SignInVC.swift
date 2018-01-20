@@ -79,7 +79,6 @@ class SignInVC: UIViewController,UITextFieldDelegate {
         DataServices.instance.createFirebaseDBUser(id: id, userData: userData)
         let KeychainWrapperResult = KeychainWrapper.standard.set(id, forKey: Constants.KEY_UID)
         KeychainWrapper.standard.set(userData[Constants.EMAILIDCURRENT]!, forKey: Constants.EMAILIDCURRENT)
-        print("The REsult of the keychain wrapper is \(KeychainWrapperResult) and email is \(KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT))")
         doSegueMan()
         
     }
