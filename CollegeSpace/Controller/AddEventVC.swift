@@ -85,6 +85,7 @@ class AddEventVC: UIViewController {
             print("Yoyoy")
             var change = eventdateTime.text!
             var correct:String = ""
+            
             for Character in change {
                 if Character == "/" {
                     correct += "-"
@@ -92,19 +93,32 @@ class AddEventVC: UIViewController {
                     correct += "\(Character)"
                 }
             }
-            let timecorrect = "\(startTimeLbl.text!)-\(endTimeLbl.text!)\(AmPmLbl.text!)"
             
-            if DataServices.instance.saveinfo(date: correct, time: timecorrect) {
-                alertTheUser(title: "Successfully", message: "Data stored successfully")
-                let firstevent = EventCell(date: correct, time: timecorrect)
-                self.delegatesaved?.getbackSaved(Event: firstevent)
-            } else {
-                alertTheUser(title: "Sorry ", message: "Network Authentication Error")
-            }
+            let timecorrect = "\(startTimeLbl.text!)-\(endTimeLbl.text!)\(AmPmLbl.text!)"
+            print("the time and date sent is \(correct) \(timecorrect)")
+            var votes:String
+            DataServices.instance.Events.child(correct).child(timecorrect).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let result = snapshot.value as?NSDictionary {
+                    print("the result inside eventadd is  \(result)")
+                    if let _vote = result[Constants.Votes]  {
+                        print("Vote inside is \(_vote)")
+                        
+                        if DataServices.instance.saveinfo(date: correct, time: timecorrect,votes: _vote as!Int) {
+                            self.alertTheUser(title: "Successfully", message: "Data stored successfully")
+                            let firstevent = EventCell(date: correct, time: timecorrect)
+                            self.delegatesaved?.getbackSaved(Event: firstevent)
+                            
+                        } else {
+                            self.alertTheUser(title: "Sorry ", message: "Network Authentication Error")
+                        }
+                    }
+                }
+            })
+            
         } else {
             self.alertTheUser(title: "Error", message: "Kindly enter all the fields before entering them")
         }
-    }
+    }//saveBtnPressed ends
     
     func alertTheUser(title:String,message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -112,26 +126,26 @@ class AddEventVC: UIViewController {
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
     }
-    
 }
-
-extension AddEventVC:UIPickerViewDelegate,UIPickerViewDataSource {
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return data.count
-    }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return data[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        AmPmLbl.text = data[row]
-    }
-    
+    extension AddEventVC:UIPickerViewDelegate,UIPickerViewDataSource {
+        
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        }
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return data.count
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return data[row]
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            AmPmLbl.text = data[row]
+        }
+        
 }
 
 

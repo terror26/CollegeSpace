@@ -71,9 +71,9 @@ class DataServices {
         Users.child(withID).setValue(data)
     }//Save user for our signup method
     
-    func saveMeetingTime(date:String, time:String) {
+    func saveMeetingTime(date:String, time:String,votes:Int) {
         //retrieve the votes
-        Events.child(date).child(time).updateChildValues(["UUID" :AuthProvider.instance.userUID(),Constants.Votes: 1])
+        Events.child(date).child(time).updateChildValues(["UUID" :AuthProvider.instance.userUID(),Constants.Votes: (votes+1)])
     }//save in Events
     
     
@@ -93,9 +93,9 @@ class DataServices {
                     let check = _Name as! String
                     print("The check is \(check)")
                     if check == KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT) {
-                    let name = _Name as! String
+                        _ = _Name as! String
                         if let _value1 = value as?NSDictionary {
-                            for (_Date,value1) in _value1 {
+                            for (_Date,value1) in _value1 {   
                                 print("the date is \(_Date) the value1 is \(value1)")
                                 
                                 if let _value2 = value1 as?NSDictionary {
@@ -133,22 +133,27 @@ class DataServices {
                     
                     if let _value2 = value as?NSDictionary {
                         
-                        for (_time,_) in _value2 {
+                        for (_time,valuex) in _value2 {
                             print("++++++ Finally,The time is \(_time)")
                             
-                            
-                            let firstsession = EventCell(date: _date as! String, time: _time as! String)
-                            Schedule.append(firstsession)
+                            if let dict  = valuex as?NSDictionary {
+                                let comparablestuff = "\(dict[Constants.Votes]!)"
+                                
+                                print("the Votes are \(comparablestuff)")
+                                let firstsession = EventCell(date: _date as!String, time: _time as!String)
+                                firstsession.configureEventCell(date: _date as! String, time: _time as! String, votes: comparablestuff )
+                                Schedule.append(firstsession)
+                            } // dict valuex
                         }
                     }
-                }
+                } //_date result
             }
             self.delegate2?.getAllDetails(Schedule: Schedule);
         } //snapshot
     }//poputlateScedhule
     
     
-    func saveinfo(date:String, time:String) -> Bool {
+    func saveinfo(date:String, time:String,votes:Int) -> Bool {
         var test :Bool = true;
         
         Users.observeSingleEvent(of: .value) { (snapshot) in
@@ -168,8 +173,9 @@ class DataServices {
                                     email += "\(Character)"
                                 }
                             }
+                            
+                            self.saveMeetingTime(date: date, time: time,votes: votes)
                             self.saveInNames(emailid: email, date: date, time: time)
-                            self.saveMeetingTime(date: date, time: time)
                             print("test is \(test)")
                             
                         } else {
@@ -182,6 +188,38 @@ class DataServices {
         }
         return test
     }//save info end
+    
+//    func checkforVotesinScheduleAndUpdate(date:String, Time:String, votes:Int)->Int {
+//
+//        var realvotes:Int?
+//        Events.observeSingleEvent(of: .value) { (snapshot) in
+//            if let inside = snapshot.value as?NSDictionary {
+//                
+//                if let inside2 = inside[date] as?NSDictionary {
+//                    if let _Time = inside2[Time] as?NSDictionary {
+//
+//                        var votes = "\(_Time[Constants.Votes]!)"
+//                        realvotes = Int(votes)
+//
+//                        if realvotes != nil {
+//                            print("the votes to be updated is \(realvotes)")
+//                            let newone = realvotes! + 1
+//                            print("the updated votes is \(realvotes)")
+//                            realvotes = newone
+//                            print("the date is \(date) and the time is \(Time)")
+//
+//                        }
+//                    }//_Time Let
+//                }//inside[date]
+//            }
+//        } // observe
+//        if realvotes != nil {
+//        return realvotes!
+//        } else {
+//            return 1
+//        }
+//    } //checkforVotesinSchedule
+    
     
     
 } // Database Services

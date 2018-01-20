@@ -1,6 +1,5 @@
 
 import UIKit
-import JTAppleCalendar
 
 class ScheduleVC: UIViewController,UITableViewDataSource,UITableViewDelegate,implementmeAll {
     
@@ -36,12 +35,12 @@ class ScheduleVC: UIViewController,UITableViewDataSource,UITableViewDelegate,imp
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EventAdded") as?EventAdded {
-            cell.configureCell(eventCell: DetailsSessions[indexPath.row])
-            print("#############data here is \(DetailsSessions[indexPath.row].date)########++++++++++")
+            cell.configureCell2(eventCell: DetailsSessions[indexPath.row])
+            print("#############data here is \(DetailsSessions[indexPath.row].votes)########++++++++++")
             return cell
         }
         return EventAdded()
     }
     
-}
+}//VCEnds here
 
