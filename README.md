@@ -1,4 +1,5 @@
-#CollegeSpace
+COLLEGESPACE
+
 
 App to organise the meet time which is most suitable for all the members of the society
 
