@@ -8,6 +8,7 @@
 
 // added by the current user only
 import UIKit
+import SwiftKeychainWrapper
 
 class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implementMeSessions,implementSaved {
     
@@ -15,7 +16,6 @@ class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implem
     @IBOutlet weak var tableView: UITableView!
     
     var Sessionsninfo = [EventCell]()
-    var Sessiondemo = [EventCell]()
     var addEventVC = AddEventVC()
     
     override func viewDidLoad() {
@@ -83,9 +83,15 @@ class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implem
         return true
     }
     
+    // deletefunctionality
     func tableView(_ tableView: UITableView, commit editingStyle:   UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
+            let required = Sessionsninfo[indexPath.row]
+
+            DataServices.instance.names.child(KeychainWrapper.standard.string(forKey:Constants.EMAILIDCURRENT)!).child(required.date).removeValue()
             self.Sessionsninfo.remove(at: indexPath.row)
+            
+            DataServices.instance.checkforVotes(required:required)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .middle)
             tableView.endUpdates()

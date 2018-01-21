@@ -186,38 +186,24 @@ class DataServices {
         }
         return test
     }//save info end
-    
-//    func checkforVotesinScheduleAndUpdate(date:String, Time:String, votes:Int)->Int {
-//
-//        var realvotes:Int?
-//        Events.observeSingleEvent(of: .value) { (snapshot) in
-//            if let inside = snapshot.value as?NSDictionary {
-//                
-//                if let inside2 = inside[date] as?NSDictionary {
-//                    if let _Time = inside2[Time] as?NSDictionary {
-//
-//                        var votes = "\(_Time[Constants.Votes]!)"
-//                        realvotes = Int(votes)
-//
-//                        if realvotes != nil {
-//                            print("the votes to be updated is \(realvotes)")
-//                            let newone = realvotes! + 1
-//                            print("the updated votes is \(realvotes)")
-//                            realvotes = newone
-//                            print("the date is \(date) and the time is \(Time)")
-//
-//                        }
-//                    }//_Time Let
-//                }//inside[date]
-//            }
-//        } // observe
-//        if realvotes != nil {
-//        return realvotes!
-//        } else {
-//            return 1
-//        }
-//    } //checkforVotesinSchedule
-    
+
+    func checkforVotes(required:EventCell) {
+        
+        Events.child(required.date).child(required.time).observeSingleEvent(of: .value) { (snapshot) in
+            if let result = snapshot.value as?NSDictionary {
+                
+                if let votes = result[Constants.Votes] as?Int {
+                    if votes == 1 {
+                        self.Events.child(required.date).child(required.time).removeValue()
+                    } else {
+                        let changed = votes - 1 ;
+                        self.Events.child(required.date).child(required.time).child(Constants.Votes).setValue(changed)
+
+                    }
+                }
+            }
+        }
+    }
     
     
 } // Database Services
