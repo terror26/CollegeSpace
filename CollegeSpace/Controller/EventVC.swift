@@ -26,6 +26,8 @@ class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implem
         addEventVC.delegatesaved = self
         DataServices.instance.delegate = self
         DataServices.instance.populateSessions();
+        tableView.reloadData()
+     
         
         // Do any additional setup after loading the view.
     }

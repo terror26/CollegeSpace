@@ -40,6 +40,7 @@ class SignInVC: UIViewController,UITextFieldDelegate {
         super.viewDidAppear(true);
         if let _ = KeychainWrapper.standard.string(forKey: Constants.KEY_UID) {
             print("JESS: ID found in keychain")
+            print("the keychain for email is \(KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT))")
             doSegueMan()
         }
     }
@@ -58,6 +59,9 @@ class SignInVC: UIViewController,UITextFieldDelegate {
         
         KeychainWrapper.standard.set(emailcorrect, forKey: Constants.EMAILIDCURRENT)
         KeychainWrapper.standard.set("ramram", forKey: Constants.KEY_UID)
+        print("-----Ramram----")
+        self.emailLabel.text = ""
+        self.passwordLabel.text = ""
     }
     
     //=====================================Firebase AUTH Stuffs ===========================================
@@ -69,16 +73,17 @@ class SignInVC: UIViewController,UITextFieldDelegate {
                 print("Authentication completed with Firebase")
                 
                 let userData = [ "provider": credential.provider ]
-                self.completeSignIn(id: (user?.uid)!,userData: userData )
+                self.completeSignIn(id: (user?.uid)!,userData: userData,user:user! )
             }
         })
     }
     
-    func completeSignIn(id: String,userData: Dictionary<String,String> ) {
+    func completeSignIn(id: String,userData: Dictionary<String,String> ,user:User) {
         
         DataServices.instance.createFirebaseDBUser(id: id, userData: userData)
         let KeychainWrapperResult = KeychainWrapper.standard.set(id, forKey: Constants.KEY_UID)
-        KeychainWrapper.standard.set(userData[Constants.EMAILIDCURRENT]!, forKey: Constants.EMAILIDCURRENT)
+        setKeychain(emailId: user.email!)
+        print("During the auth the send email to set is  \(user.email)")
         doSegueMan()
         
     }
@@ -92,8 +97,6 @@ class SignInVC: UIViewController,UITextFieldDelegate {
                     self.alertTheUser(title: "Authentication Error!", message: message!)
                 } else {
                     self.setKeychain(emailId:self.emailLabel.text!);
-                    self.emailLabel.text = ""
-                    self.passwordLabel.text = ""
                     
                     doSegueMan()
                 }
@@ -112,8 +115,6 @@ class SignInVC: UIViewController,UITextFieldDelegate {
                 } else {
                     
                     self.setKeychain(emailId:self.emailLabel.text!);
-                    self.emailLabel.text = ""
-                    self.passwordLabel.text = ""
                     print("Done man Done")
                     doSegueMan()
                 }

@@ -23,6 +23,7 @@ class AddEventVC: UIViewController {
     let datePicker = UIDatePicker()
     var pickerView = UIPickerView()
     var pickerView2 = UIPickerView()
+    
     let cell = EventCell(date: "8/10/12",time:"10-11Am")
     var timedata = ["1","2","3","4","5","6","7","8","9","10","11","12"];
     var data = ["AM","PM"]
@@ -100,30 +101,39 @@ class AddEventVC: UIViewController {
             
             let timecorrect = "\(startTimeLbl.text!)-\(endTimeLbl.text!)\(AmPmLbl.text!)"
             print("the time and date sent is \(correct) \(timecorrect)")
-            
+            var changed :Bool = true
             DataServices.instance.Events.child(correct).child(timecorrect).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let result = snapshot.value as?NSDictionary {
                     
                     if let _vote = result[Constants.Votes]  {
                         
-                        if DataServices.instance.saveinfo(date: correct, time: timecorrect,votes: _vote as!Int) {
-                            self.alertTheUser(title: "Successfully", message: "Data stored successfully")
-                            let firstevent = EventCell(date: correct, time: timecorrect)
-                            self.delegatesaved?.getbackSaved(Event: firstevent)
-                            
-                        } else {
-                            self.alertTheUser(title: "Sorry ", message: "Network Authentication Error")
-                        }
+                        self.saveandAlert(_vote: _vote as! Int,time:timecorrect, date:correct)
                     }
                 }
             })
-            
-        } else {
+
+            print("´´´´´´´´´´ the changed is \(changed) ´´´´´´´´´´´´´")
+            if (changed) {
+                self.saveandAlert(_vote: 0, time: timecorrect, date: correct)
+                
+            }} else {
             self.alertTheUser(title: "Error", message: "Kindly enter all the fields before entering them")
         }
     }//saveBtnPressed ends
     
     
+    func saveandAlert(_vote:Int, time:String, date:String) {
+        
+        if DataServices.instance.saveinfo(date: date, time: time,votes: _vote as!Int) {
+            self.alertTheUser(title: "Successfully", message: "Data stored successfully")
+            let firstevent = EventCell(date: date, time: time)
+            self.delegatesaved?.getbackSaved(Event: firstevent)
+            
+        } else {
+            self.alertTheUser(title: "Sorry ", message: "Network Authentication Error")
+        }
+    }
+        
     func alertTheUser(title:String,message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)

@@ -78,6 +78,7 @@ class DataServices {
     
     
     func saveInNames(emailid:String, date:String, time:String) {
+        print("the emailid sent is \(emailid) & the email id in keychainwrapper is \(KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT))")
         names.child(emailid).child(date).child(Constants.Time).updateChildValues([time:true]);
     }//save in Names
     
@@ -88,13 +89,14 @@ class DataServices {
             
             if let result = snapshot.value as?NSDictionary {
                 for (_Name,value) in result {
-
+                    
                     let check = _Name as! String
                     print("The check is \(check)")
+                    print("The emailid current is \(KeychainWrapper.standard.string(forKey:Constants.EMAILIDCURRENT) )")
                     if check == KeychainWrapper.standard.string(forKey: Constants.EMAILIDCURRENT) {
                         _ = _Name as! String
                         if let _value1 = value as?NSDictionary {
-                            for (_Date,value1) in _value1 {   
+                            for (_Date,value1) in _value1 {
                                 print("the date is \(_Date) the value1 is \(value1)")
                                 
                                 if let _value2 = value1 as?NSDictionary {
@@ -118,8 +120,8 @@ class DataServices {
             self.delegate?.getSessionDetails(sessions: sessions)
             
         }//snapshot
-        
     }//populatesession
+    
     
     func populateSchedule() {
         Events.observeSingleEvent(of: .value) { (snapshot) in
