@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="190.5" width="375" height="427.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventAdded" rowHeight="114" id="Wak-it-CHz" customClass="EventAdded" customModule="CollegeSpace" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventAdded" rowHeight="114" id="Wak-it-CHz" customClass="EventAdded" customModule="CollegeSpace" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wak-it-CHz" id="bB6-hP-Ei5">
@@ -209,7 +209,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Calender" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="dateLbl" destination="ZG5-P1-CQ8" id="4bA-nD-2fX"/>
                         <outlet property="tableView" destination="DK2-fx-lLK" id="OzN-qM-nJc"/>
+                        <outlet property="timeLbl" destination="55m-5d-V1i" id="A2d-eO-XMK"/>
+                        <outlet property="weekdayLbl" destination="Nup-Io-6Sm" id="JBj-xL-iT0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -228,7 +231,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventAdded" rowHeight="200" id="9nZ-99-GVI" customClass="EventAdded" customModule="CollegeSpace" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventAdded" rowHeight="200" id="9nZ-99-GVI" customClass="EventAdded" customModule="CollegeSpace" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9nZ-99-GVI" id="RmU-Mk-uod">
