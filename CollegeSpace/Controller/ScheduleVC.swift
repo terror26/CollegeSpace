@@ -37,6 +37,7 @@ class ScheduleVC: UIViewController,UITableViewDataSource,UITableViewDelegate,imp
             }
         UpdateMainLbl();
         }
+        tableView.reloadData();
     } // sortinOrder
     
     func UpdateMainLbl() {
@@ -88,6 +89,7 @@ class ScheduleVC: UIViewController,UITableViewDataSource,UITableViewDelegate,imp
         for firstsession in Schedule! {
             DetailsSessions.append(firstsession)
         }
+        sortInOrder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,7 +108,6 @@ class ScheduleVC: UIViewController,UITableViewDataSource,UITableViewDelegate,imp
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EventAdded") as?EventAdded {
             cell.configureCell2(eventCell: DetailsSessions[indexPath.row])
-            print("#############data here is \(DetailsSessions[indexPath.row].votes)########++++++++++")
             return cell
         }
         return EventAdded()

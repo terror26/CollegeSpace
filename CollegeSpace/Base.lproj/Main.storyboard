@@ -228,7 +228,7 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Event Acc To You-->
+        <!--Your Preference-->
         <scene sceneID="KbA-tD-dmW">
             <objects>
                 <viewController id="vCQ-ne-eFK" customClass="EventVC" customModule="CollegeSpace" customModuleProvider="target" sceneMemberID="viewController">
@@ -316,7 +316,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hqy-FZ-5Qh"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Event Acc To You" id="sWn-FX-a7E">
+                    <navigationItem key="navigationItem" title="Your Preference" id="sWn-FX-a7E">
                         <barButtonItem key="leftBarButtonItem" title="Refresh" id="2fD-ed-utz">
                             <connections>
                                 <action selector="RefreshBtn:" destination="vCQ-ne-eFK" id="8oS-zZ-Ck8"/>
@@ -514,14 +514,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="totalbackgound" translatesAutoresizingMaskIntoConstraints="NO" id="poX-Gk-rbc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="poX-Gk-rbc">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="I52-0V-WkZ">
                                 <rect key="frame" x="40" y="60" width="295" height="577"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Dzo-63-Swg">
-                                <rect key="frame" x="55" y="100" width="265" height="320"/>
+                                <rect key="frame" x="55" y="100" width="265" height="340"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="b5o-px-mMv">
                                         <rect key="frame" x="0.0" y="0.0" width="265" height="75"/>
@@ -582,8 +582,12 @@
                                             <action selector="signIn:" destination="NzC-tr-WNj" eventType="touchUpInside" id="QW3-HW-zDy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gv-oc-X92">
-                                        <rect key="frame" x="0.0" y="290" width="265" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gv-oc-X92" customClass="RoundButton" customModule="CollegeSpace" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="290" width="265" height="50"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Ykv-li-Urq"/>
+                                        </constraints>
                                         <state key="normal" title="Sign UP"/>
                                         <connections>
                                             <action selector="signUpBtnPressed:" destination="NzC-tr-WNj" eventType="touchUpInside" id="2h9-Hn-LBv"/>
@@ -810,6 +814,7 @@
         <image name="Edit" width="25" height="25"/>
         <image name="Rectangle" width="278" height="546"/>
         <image name="Schedule" width="30" height="28"/>
+        <image name="bg" width="1080" height="1920"/>
         <image name="totalbackgound" width="375" height="667"/>
     </resources>
 </document>

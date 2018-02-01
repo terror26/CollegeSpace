@@ -7,10 +7,10 @@
 //
 
 import UIKit
-
-protocol implementSaved {
-    func getbackSaved(Event:EventCell?)
-}
+//
+//protocol implementSaved {
+//    func getbackSaved(Event:EventCell?)
+//}
 
 class AddEventVC: UIViewController {
     
@@ -19,7 +19,7 @@ class AddEventVC: UIViewController {
     @IBOutlet weak var startTimeLbl: UITextField!
     @IBOutlet weak var AmPmLbl: UITextField!
     
-    var delegatesaved:implementSaved?
+//    var delegatesaved:implementSaved?
     let datePicker = UIDatePicker()
     var pickerView = UIPickerView()
     var pickerView2 = UIPickerView()
@@ -85,50 +85,72 @@ class AddEventVC: UIViewController {
     }
     
     @IBAction func SaveBtnPressed(_ sender: UIButton) {
-        if eventdateTime.text != ""  && startTimeLbl.text != "" && endTimeLbl.text != ""  {
+        if eventdateTime.text != ""  && startTimeLbl.text != "" && endTimeLbl.text != "" && AmPmLbl.text != "" {
             
-            print("Yoyoy")
-            let change = eventdateTime.text!
             var correct:String = ""
+            correct = change1(eventdateTime.text!);
             
-            for Character in change {
-                if Character == "/" {
-                    correct += "-"
-                } else {
-                    correct += "\(Character)"
-                }
+            if(correct == "") {
+                return;
             }
             
             let timecorrect = "\(startTimeLbl.text!)-\(endTimeLbl.text!)\(AmPmLbl.text!)"
-            print("the time and date sent is \(correct) \(timecorrect)")
-            var changed :Bool = true
+            
             DataServices.instance.Events.child(correct).child(timecorrect).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let result = snapshot.value as?NSDictionary {
-                    
                     if let _vote = result[Constants.Votes]  {
-                        
                         self.saveandAlert(_vote: _vote as! Int,time:timecorrect, date:correct)
                     }
                 }
             })
-
-            print("´´´´´´´´´´ the changed is \(changed) ´´´´´´´´´´´´´")
-            if (changed) {
-                self.saveandAlert(_vote: 0, time: timecorrect, date: correct)
-                
-            }} else {
+            
+            self.saveandAlert(_vote: 0, time: timecorrect, date: correct)
+            } else {
             self.alertTheUser(title: "Error", message: "Kindly enter all the fields before entering them")
         }
     }//saveBtnPressed ends
     
+    func change1(_ change: String) ->String {
+        var correct:String = ""
+        
+        if(!check(date: change)) {
+            alertTheUser(title: "Error", message: "Please enter the correct date for meeting")
+            return ""
+        }
+        for Character in change {
+            if Character == "/" {
+                correct += "-"
+            } else {
+                correct += "\(Character)"
+            }
+        }
+        return correct
+    }
+    
+    func check(date:String!) -> Bool {
+
+        let dateFormatter: DateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        
+        let now = Date()
+        let datecomponent2 = dateFormatter.date(from: date)
+        
+        print("The now is\(datecomponent2)")
+        print("The date sent is \(date)")
+        if (datecomponent2! >= now) {
+            return true
+        } else {
+            return false
+        }
+    }
     
     func saveandAlert(_vote:Int, time:String, date:String) {
         
         if DataServices.instance.saveinfo(date: date, time: time,votes: _vote as!Int) {
             self.alertTheUser(title: "Successfully", message: "Data stored successfully")
-            let firstevent = EventCell(date: date, time: time)
-            self.delegatesaved?.getbackSaved(Event: firstevent)
-            
+//            let firstevent = EventCell(date: date, time: time)
+//            self.delegatesaved?.getbackSaved(Event: firstevent)
         } else {
             self.alertTheUser(title: "Sorry ", message: "Network Authentication Error")
         }
@@ -138,15 +160,12 @@ class AddEventVC: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(ok)
-        present(alert, animated: true, completion: nil)
-    }
-    
+        present(alert, animated: true, completion:nil )
+    }//alertTheUser
 }
 
 
 extension AddEventVC:UIPickerViewDelegate,UIPickerViewDataSource {
-    
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

@@ -27,6 +27,8 @@ class DataServices {
     private static let _instance = DataServices();
     private init(){};
     
+    var testSelfSchedule = [EventCell]()
+    
     weak var delegate:implementMeSessions?
     weak var delegate2:implementmeAll?
     
@@ -71,9 +73,22 @@ class DataServices {
         Users.child(withID).setValue(data)
     }//Save user for our signup method
     
+    
     func saveMeetingTime(date:String, time:String,votes:Int) {
         //retrieve the votes
-        Events.child(date).child(time).updateChildValues(["UUID" :AuthProvider.instance.userUID(),Constants.Votes: (votes+1)])
+       
+        print("the votes sent is \(votes)")
+        for firstsession in testSelfSchedule {
+            if firstsession.date == date && firstsession.time == time {
+                print("######################  Got u   ###################")
+                print("+++++++++++++++++++++++++ Found the items with date \(date) \(time)  ++++++++++++++++");
+                return
+            }
+        }
+        print("The votes updated is \(votes)")
+        self.Events.child(date).child(time).updateChildValues([Constants.Votes: votes+1])
+        return
+        
     }//save in Events
     
     
@@ -97,17 +112,15 @@ class DataServices {
                         _ = _Name as! String
                         if let _value1 = value as?NSDictionary {
                             for (_Date,value1) in _value1 {
-                                print("the date is \(_Date) the value1 is \(value1)")
                                 
                                 if let _value2 = value1 as?NSDictionary {
                                     for (key2,value2) in _value2 {
-                                        print("-------\(key2) is \(value2)------")
                                         if let _value3 = value2 as?NSDictionary {
                                             for (_Time,_) in _value3  {
-                                                print("++++++ Finally,The time is \(_Time)")
                                                 
                                                 let firstSession = EventCell(date: _Date as! String,time: _Time as! String)
                                                 sessions.append(firstSession)
+                                                print("Appended asap ++++++++++ \(firstSession.date)")
                                             }
                                         }
                                     }
@@ -116,6 +129,7 @@ class DataServices {
                         }// _value1
                     }
                 }
+                self.testSelfSchedule = sessions
             }
             self.delegate?.getSessionDetails(sessions: sessions)
             
@@ -141,7 +155,7 @@ class DataServices {
                                 
                                 print("the Votes are \(comparablestuff)")
                                 let firstsession = EventCell(date: _date as!String, time: _time as!String)
-                                firstsession.configureEventCell(date: _date as! String, time: _time as! String, votes: comparablestuff )
+                                firstsession.configureEventCell(date: _date as! String, time: _time as! String, votes: comparablestuff)
                                 Schedule.append(firstsession)
                             } // dict valuex
                         }
@@ -155,7 +169,6 @@ class DataServices {
     
     func saveinfo(date:String, time:String,votes:Int) -> Bool {
         var test :Bool = true;
-        
         Users.observeSingleEvent(of: .value) { (snapshot) in
             if let result = snapshot.value as?NSDictionary {
                 if let currentUser = result[AuthProvider.instance.userUID()] as?NSDictionary {

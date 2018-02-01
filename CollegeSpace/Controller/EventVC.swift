@@ -10,7 +10,7 @@
 import UIKit
 import SwiftKeychainWrapper
 
-class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implementMeSessions,implementSaved {
+class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implementMeSessions {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -23,7 +23,7 @@ class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implem
         tableView.dataSource = self
         tableView.delegate = self
         
-        addEventVC.delegatesaved = self
+//        addEventVC.delegatesaved = self
         DataServices.instance.delegate = self
         DataServices.instance.populateSessions();
         tableView.reloadData()
@@ -38,11 +38,11 @@ class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implem
         tableView.reloadData()
     }
     
-    func getbackSaved(Event: EventCell?) {
-        Sessionsninfo.append(Event!)
-        tableView.reloadData()
-    }
-    
+//    func getbackSaved(Event: EventCell?) {
+//        Sessionsninfo.append(Event!)
+//        tableView.reloadData()
+//    }
+//
     func getSessionDetails(sessions: [EventCell]?) {
         Sessionsninfo.removeAll()
         
@@ -90,7 +90,7 @@ class EventVC: UIViewController,UITableViewDelegate,UITableViewDataSource,implem
         if (editingStyle == .delete) {
             let required = Sessionsninfo[indexPath.row]
 
-            DataServices.instance.names.child(KeychainWrapper.standard.string(forKey:Constants.EMAILIDCURRENT)!).child(required.date).removeValue()
+            DataServices.instance.names.child(KeychainWrapper.standard.string(forKey:Constants.EMAILIDCURRENT)!).child(required.date).child("Time").child(required.time).removeValue()
             self.Sessionsninfo.remove(at: indexPath.row)
             
             DataServices.instance.checkforVotes(required:required)

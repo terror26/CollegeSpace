@@ -14,8 +14,8 @@ class EventCell {
     private var _date:String!
     private var _time:String!
     private var _votes:String!
+
     
-   
     
     var date:String {
         return _date
