@@ -1,5 +1,5 @@
 # CollegeSpace
-## App to organise the meet time which is most suitable for all the members of the society
+## App to organise the conference or meeting time ,which is most suitable for small groups or societies.
 ![screen shot 2018-02-02 at 4 06 58 am](https://user-images.githubusercontent.com/29154028/35707153-b9012ce0-07ce-11e8-990b-3588cbf1d2c2.png)
 ![screen shot 2018-02-02 at 4 05 44 am](https://user-images.githubusercontent.com/29154028/35707154-b934e382-07ce-11e8-92b8-3670b8a5b1e0.png)
 ![screen shot 2018-02-02 at 4 06 13 am](https://user-images.githubusercontent.com/29154028/35707155-b966e42c-07ce-11e8-928f-aa36a6cdc8c8.png)
